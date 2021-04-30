@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  labels:
+    environment: prod
+  name: pod-creators
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pod-creator
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: deploy-bot@foo-corp.com
